@@ -6,7 +6,7 @@ import com.google.inject.{AbstractModule, Provides}
 
 class CxfModule extends AbstractModule {
 
-  def configure():Unit = {
+  override def configure():Unit = {
     requestInjection(CxfModule.cxfController)
   }
 
