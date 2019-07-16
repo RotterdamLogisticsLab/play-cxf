@@ -14,7 +14,7 @@ organizationName := "iMind"
 
 organizationHomepage := Some(url("http://imind.eu/"))
 
-version := "1.3.0"
+version := "1.4.0"
 
 scalaVersion := "2.12.8"
 
@@ -56,3 +56,15 @@ pomExtra :=
   </developers>
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
+
+credentials += (sys.env.get("ARTIFACT_REPO_USER") match {
+  case Some(repoUser) => Credentials("Artifactory Realm", "rll.jfrog.io", repoUser, sys.env("ARTIFACT_REPO_PASSWORD"))
+  case _ => Credentials(Path.userHome / ".ivy2" / ".pronto-credentials")
+})
+
+publishTo := {
+  if (isSnapshot.value)
+    Some("Artifactory Realm" at "https://rll.jfrog.io/rll/pronto-snapshots")
+  else
+    Some("Artifactory Realm" at "https://rll.jfrog.io/rll/pronto-releases")
+}
