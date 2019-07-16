@@ -16,13 +16,13 @@ organizationHomepage := Some(url("http://imind.eu/"))
 
 version := "1.3.0"
 
-scalaVersion := "2.12.3"
+scalaVersion := "2.12.8"
 
 libraryDependencies += guice
 
-libraryDependencies += "org.springframework" % "spring-context" % "[4.3.3.RELEASE,)"
+libraryDependencies += "org.springframework" % "spring-context" % "[5.1.8.RELEASE,)"
 
-libraryDependencies += "org.apache.cxf" % "cxf-core" % "3.1.2"
+libraryDependencies += "org.apache.cxf" % "cxf-core" % "3.3.2"
 
 libraryDependencies += "com.typesafe.play" %% "play-iteratees" % "2.6.1"
 
